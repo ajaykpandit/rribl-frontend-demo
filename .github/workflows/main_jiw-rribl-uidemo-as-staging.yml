@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: jiwicacrasstaging.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_32c3e4af508b42fc99f6a581bf689849 }}/rribl-front-service:${{ github.sha }}
+        tags: jiwicacrasstaging.azurecr.io/rribl-front-service:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'jiw-rribl-uidemo-as-staging'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_de37f21d1e6f46de991c7d8931ccb16e }}
-        images: 'jiwicacrasstaging.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_32c3e4af508b42fc99f6a581bf689849 }}/rribl-front-service:${{ github.sha }}'
+        images: 'jiwicacrasstaging.azurecr.io/rribl-front-service:${{ github.sha }}'
